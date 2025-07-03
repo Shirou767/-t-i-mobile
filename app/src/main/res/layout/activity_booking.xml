@@ -1,0 +1,132 @@
+<?xml version="1.0" encoding="utf-8"?>
+<androidx.constraintlayout.widget.ConstraintLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#FFF7E8"
+    android:padding="24dp">
+
+    <TextView
+        android:id="@+id/tvTitle"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎬 Đặt Vé Xem Phim"
+        android:textSize="22sp"
+        android:textStyle="bold"
+        android:textColor="#37474F"
+        android:fontFamily="casual"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <TextView
+        android:id="@+id/lblTheater"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🎥 Chọn rạp"
+        android:textColor="#5D5D5D"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/tvTitle"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <Spinner
+        android:id="@+id/spinnerTheater"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:backgroundTint="#FFECB3"
+        android:spinnerMode="dropdown"
+        android:popupBackground="#FFFDE7"
+        app:layout_constraintTop_toBottomOf="@id/lblTheater"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/lblShowTime"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="🕒 Chọn giờ chiếu"
+        android:textColor="#5D5D5D"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerTheater"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+    <Spinner
+        android:id="@+id/spinnerShowTime"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:backgroundTint="#FFECB3"
+        android:spinnerMode="dropdown"
+        android:popupBackground="#FFFDE7"
+        app:layout_constraintTop_toBottomOf="@id/lblShowTime"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+
+    <TextView
+        android:id="@+id/lblSeat"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="💺 Nhập ghế (VD: A1)"
+        android:textColor="#5D5D5D"
+        android:textSize="16sp"
+        app:layout_constraintTop_toBottomOf="@id/spinnerShowTime"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="16dp" />
+
+
+    <EditText
+        android:id="@+id/edtSeat"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:minHeight="48dp"
+        android:paddingVertical="12dp"
+        android:paddingHorizontal="16dp"
+        android:hint="Ghế bạn muốn đặt (ví dụ: A1)"
+        android:textSize="16sp"
+        android:backgroundTint="#FFE082"
+        android:importantForAccessibility="yes"
+        android:maxLength="2"
+        android:inputType="text"
+        app:layout_constraintTop_toBottomOf="@id/lblSeat"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="8dp" />
+
+    <TextView
+        android:id="@+id/txtTotal"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="Tổng tiền: 0 VND"
+        android:textColor="#2C3E50"
+        android:textSize="18sp"
+        android:textStyle="bold"
+        app:layout_constraintTop_toBottomOf="@id/edtSeat"
+        app:layout_constraintStart_toStartOf="parent"
+        android:layout_marginTop="24dp" />
+
+    <Button
+        android:id="@+id/btnConfirmBooking"
+        android:layout_width="0dp"
+        android:layout_height="wrap_content"
+        android:text="✅ Xác nhận đặt vé"
+        android:backgroundTint="#81C784"
+        android:textColor="#FFFFFF"
+        android:textSize="16sp"
+        android:padding="12dp"
+        android:fontFamily="casual"
+        app:layout_constraintTop_toBottomOf="@id/txtTotal"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginTop="16dp" />
+</androidx.constraintlayout.widget.ConstraintLayout>

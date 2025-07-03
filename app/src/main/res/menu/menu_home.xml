@@ -1,0 +1,16 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android">
+
+    <item
+        android:id="@+id/menu_account"
+        android:title="⚙️ Thông tin tài khoản" />
+
+    <item
+        android:id="@+id/menu_movies"
+        android:title="🎬 Danh sách phim" />
+
+    <item
+        android:id="@+id/menu_logout"
+        android:title="🔓 Đăng xuất" />
+
+</menu>
