@@ -40,12 +40,14 @@ public class MovieDetailsActivity extends AppCompatActivity {
 
         // Nhận film_id từ intent
         filmId = getIntent().getIntExtra("film_id", -1);
+        Toast.makeText(this, "MovieDetails nhận filmId: " + filmId, Toast.LENGTH_SHORT).show();
 
         if (filmId == -1) {
             Toast.makeText(this, "Không có thông tin phim!", Toast.LENGTH_SHORT).show();
             finish();
             return;
         }
+
 
         // Xử lý sự kiện nút "Đặt vé"
         btnBook.setOnClickListener(v -> {

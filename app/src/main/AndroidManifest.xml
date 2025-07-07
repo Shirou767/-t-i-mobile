@@ -26,7 +26,7 @@
 
         <!-- Màn hình đăng ký -->
         <activity android:name=".RegisterActivity" />
-        <!-- Màn hình đăng ký -->
+        <!-- Màn hình home -->
         <activity android:name=".HomeActivity" />
         <!-- Movie list -->
         <activity android:name=".MovieListActivity" />
@@ -37,7 +37,8 @@
         <!--movie details-->
         <activity android:name=".MovieDetailsActivity"/>
         <!--Booking-->
-        <activity android:name=".BookingActivity"/>        <!--Booking Details-->
+        <activity android:name=".BookingActivity"/>
+        <!--Booking Details-->
         <activity android:name=".BookingDetailsActivity"/>
 
     </application>

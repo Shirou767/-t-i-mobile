@@ -33,7 +33,7 @@ public class LoginActivity extends AppCompatActivity {
 
         dbHelper = new Data(this);
 
-        // ✅ Thêm dữ liệu mẫu chỉ 1 lần duy nhất
+        // Thêm dữ liệu mẫu chỉ 1 lần duy nhất
         SharedPreferences firstPrefs = getSharedPreferences("AppPrefs", MODE_PRIVATE);
         boolean isFirstRun = firstPrefs.getBoolean("first_run", true);
         if (isFirstRun) {
@@ -52,7 +52,7 @@ public class LoginActivity extends AppCompatActivity {
         chkRemember = findViewById(R.id.chkRemember);
         TextView txtForgotPassword = findViewById(R.id.txtForgotPassword);
 
-        // ✅ Tự động điền nếu đã lưu
+        // tự động điền nếu đã lưu
         String savedUsername = sharedPreferences.getString("username", "");
         String savedPassword = sharedPreferences.getString("password", "");
         boolean isRemembered = sharedPreferences.getBoolean("remember", false);
@@ -90,10 +90,10 @@ public class LoginActivity extends AppCompatActivity {
         );
 
         if (cursor.moveToFirst()) {
-            int uid = cursor.getInt(cursor.getColumnIndexOrThrow("UID")); // ✅ Lấy UID
+            int uid = cursor.getInt(cursor.getColumnIndexOrThrow("UID")); // Lấy UID
             cursor.close();
 
-            // ✅ Lưu UID vào SessionManager
+            // Lưu UID vào SessionManager
             SessionManager sessionManager = new SessionManager(this);
             sessionManager.saveUserId(uid);
 

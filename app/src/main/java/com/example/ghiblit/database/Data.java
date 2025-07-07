@@ -57,6 +57,7 @@ public class Data extends SQLiteOpenHelper {
                 "BookingDate TEXT," +
                 "Theater TEXT," +      // Tên rạp (có thể thay bằng TID nếu muốn khóa ngoại chặt hơn)
                 "TotalPrice REAL," +
+                "Showtime TEXT,"+
                 "Status TEXT," +
                 "FOREIGN KEY (UID) REFERENCES User(UID)" +
                 ");");
@@ -152,8 +153,8 @@ public class Data extends SQLiteOpenHelper {
 
 
         // Thêm booking
-        db.execSQL("INSERT INTO Booking (UID, BookingDate, Theater, TotalPrice, Status) " +
-                "VALUES (1, '2025-06-22', 'Ghibli Cinema', 100000, 'Confirmed')");
+        db.execSQL("INSERT INTO Booking (UID, BookingDate, Theater, TotalPrice,Showtime, Status) " +
+                "VALUES (1, '2025-06-22', 'Ghibli Cinema', 100000,'12:00', 'Confirmed')");
 
         // Thêm chi tiết vé
         db.execSQL("INSERT INTO BookDetail (BID, FID, TID, Seat, Price) " +
