@@ -51,17 +51,25 @@ public class BookingDetailsActivity extends AppCompatActivity {
         bookingList.clear();
 
         SQLiteDatabase db = dbHelper.getReadableDatabase();
-        Cursor cursor = db.rawQuery("SELECT * FROM Booking WHERE UID = ? ORDER BY BookingDate DESC",
-                new String[]{String.valueOf(userId)});
+        String sql = "SELECT B.BID, B.BookingDate, T.Name AS TheaterName, M.Name AS MovieName, " +
+                "B.SeatInfo, B.TotalPrice, B.Status " +
+                "FROM Booking B " +
+                "JOIN Theater T ON B.TheaterID = T.TheaterID " +
+                "JOIN Movie M ON B.MovieID = M.MovieID " +
+                "WHERE B.UID = ? ORDER BY B.BookingDate DESC";
+
+        Cursor cursor = db.rawQuery(sql, new String[]{String.valueOf(userId)});
 
         while (cursor.moveToNext()) {
             int bid = cursor.getInt(cursor.getColumnIndexOrThrow("BID"));
             String date = cursor.getString(cursor.getColumnIndexOrThrow("BookingDate"));
-            String theater = cursor.getString(cursor.getColumnIndexOrThrow("Theater"));
+            String theater = cursor.getString(cursor.getColumnIndexOrThrow("TheaterName"));
+            String movie = cursor.getString(cursor.getColumnIndexOrThrow("MovieName"));
+            String seats = cursor.getString(cursor.getColumnIndexOrThrow("SeatInfo"));
             double total = cursor.getDouble(cursor.getColumnIndexOrThrow("TotalPrice"));
             String status = cursor.getString(cursor.getColumnIndexOrThrow("Status"));
 
-            bookingList.add(new Booking(bid, date, theater, total, status));
+            bookingList.add(new Booking(bid, date, theater, movie, seats, total, status));
         }
 
         cursor.close();
@@ -72,6 +80,7 @@ public class BookingDetailsActivity extends AppCompatActivity {
 
         recyclerView.setAdapter(adapter);
     }
+
 
     private void cancelBooking(Booking booking) {
         if (!booking.getStatus().equalsIgnoreCase("confirmed")) {

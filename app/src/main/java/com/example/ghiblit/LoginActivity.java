@@ -14,7 +14,7 @@ import android.widget.Toast;
 import androidx.appcompat.app.AppCompatActivity;
 
 import com.example.ghiblit.database.Data;
-import com.example.ghiblit.utils.SessionManager; // 🟢 Thêm dòng này
+import com.example.ghiblit.utils.SessionManager;
 
 public class LoginActivity extends AppCompatActivity {
 

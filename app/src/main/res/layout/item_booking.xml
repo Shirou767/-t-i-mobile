@@ -1,57 +1,80 @@
 <?xml version="1.0" encoding="utf-8"?>
 <androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:card_view="http://schemas.android.com/apk/res-auto"
-    android:layout_margin="8dp"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
+    android:layout_margin="8dp"
+    android:padding="12dp"
     card_view:cardElevation="4dp"
-    card_view:cardCornerRadius="8dp"
-    android:padding="12dp">
+    card_view:cardCornerRadius="10dp">
 
     <LinearLayout
-        android:orientation="vertical"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content">
+        android:layout_height="wrap_content"
+        android:orientation="vertical">
 
         <TextView
             android:id="@+id/txtBookingId"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
+            android:text="🎟️ Mã vé: #123"
             android:textStyle="bold"
             android:textSize="16sp"
-            android:text="Mã: #123" />
+            android:textColor="#000000" />
 
         <TextView
             android:id="@+id/txtBookingDate"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Ngày: 2024-07-02" />
+            android:text="📅 Ngày: 2024-07-02"
+            android:textColor="#444444" />
 
         <TextView
-            android:id="@+id/txtBookingTheater"
+            android:id="@+id/txtTheater"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Rạp: Ghibli Cinema" />
+            android:text="🎭 Rạp: Ghibli Cinema"
+            android:textColor="#444444" />
 
         <TextView
-            android:id="@+id/txtBookingTotal"
+            android:id="@+id/txtMovie"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Tổng: 120000 VND" />
+            android:text="🎬 Phim: Spirited Away"
+            android:textColor="#444444" />
 
         <TextView
-            android:id="@+id/txtBookingStatus"
+            android:id="@+id/txtSeats"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:text="Trạng thái: confirmed" />
+            android:text="💺 Ghế: A1, A2"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txtTotalPrice"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="💰 Tổng: 120000 VND"
+            android:textColor="#444444" />
+
+        <TextView
+            android:id="@+id/txtStatus"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="📌 Trạng thái: confirmed"
+            android:textStyle="bold"
+            android:textColor="#FF5722"
+            android:layout_marginTop="4dp" />
 
         <Button
-            android:id="@+id/btnCancel"
+            android:id="@+id/btnCancelBooking"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="Hủy vé"
-            android:layout_marginTop="4dp"
-            android:visibility="gone"/>
-
+            android:text="❌ Hủy vé"
+            android:layout_marginTop="8dp"
+            android:backgroundTint="#D32F2F"
+            android:textColor="#FFFFFF"
+            android:visibility="gone" />
     </LinearLayout>
+
 </androidx.cardview.widget.CardView>

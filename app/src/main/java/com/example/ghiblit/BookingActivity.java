@@ -157,8 +157,7 @@ public class BookingActivity extends AppCompatActivity {
         SQLiteDatabase db = dbHelper.getWritableDatabase();
 
         // Ghi vào bảng Booking
-        ContentValues values = new ContentValues();
-        values.put("UID", uid);
+        ContentValues values = new ContentValues();        values.put("UID", uid);
         values.put("BookingDate", date);
         values.put("Theater", theater);
         values.put("TotalPrice", total);

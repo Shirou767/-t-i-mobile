@@ -32,7 +32,7 @@ public class AccountInfoActivity extends AppCompatActivity {
         edtUsername = findViewById(R.id.edtUsername);
         btnEdit = findViewById(R.id.btnEdit);
         btnSave = findViewById(R.id.btnSave);
-        Button btnForgotPassword = findViewById(R.id.btnForgotPassword); // ✅
+        Button btnForgotPassword = findViewById(R.id.btnForgotPassword);
 
         dbHelper = new Data(this);
 

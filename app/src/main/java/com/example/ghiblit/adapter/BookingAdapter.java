@@ -7,6 +7,7 @@ import android.view.ViewGroup;
 import android.widget.Button;
 import android.widget.TextView;
 
+import androidx.annotation.NonNull;
 import androidx.recyclerview.widget.RecyclerView;
 
 import com.example.ghiblit.R;
@@ -18,41 +19,40 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
 
     private Context context;
     private List<Booking> bookingList;
-    private OnCancelClickListener cancelClickListener;
+    private OnCancelClickListener listener;
 
-    // Giao diện callback
     public interface OnCancelClickListener {
-        void onCancel(Booking booking);
+        void onCancelClick(Booking booking);
     }
 
-    public BookingAdapter(Context context, List<Booking> bookings, OnCancelClickListener cancelClickListener) {
+    public BookingAdapter(Context context, List<Booking> bookingList, OnCancelClickListener listener) {
         this.context = context;
-        this.bookingList = bookings;
-        this.cancelClickListener = cancelClickListener;
+        this.bookingList = bookingList;
+        this.listener = listener;
     }
 
+    @NonNull
     @Override
-    public BookingViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public BookingViewHolder onCreateViewHolder(@NonNull ViewGroup parent, int viewType) {
         View view = LayoutInflater.from(context).inflate(R.layout.item_booking, parent, false);
         return new BookingViewHolder(view);
     }
 
     @Override
-    public void onBindViewHolder(BookingViewHolder holder, int position) {
+    public void onBindViewHolder(@NonNull BookingViewHolder holder, int position) {
         Booking booking = bookingList.get(position);
-        holder.txtId.setText("Mã: #" + booking.getId());
-        holder.txtDate.setText("Ngày: " + booking.getDate());
+
+        holder.txtId.setText("Mã vé: #" + booking.getId());
+        holder.txtDate.setText("Ngày đặt: " + booking.getDate());
         holder.txtTheater.setText("Rạp: " + booking.getTheater());
-        holder.txtTotal.setText("Tổng: " + booking.getTotal() + " VND");
+        holder.txtMovie.setText("Phim: " + booking.getMovieName());
+        holder.txtSeats.setText("Ghế: " + booking.getSeatInfo());
+        holder.txtTotal.setText("Tổng tiền: " + booking.getTotal() + " đ");
         holder.txtStatus.setText("Trạng thái: " + booking.getStatus());
 
         if (booking.getStatus().equalsIgnoreCase("confirmed")) {
             holder.btnCancel.setVisibility(View.VISIBLE);
-            holder.btnCancel.setOnClickListener(v -> {
-                if (cancelClickListener != null) {
-                    cancelClickListener.onCancel(booking);
-                }
-            });
+            holder.btnCancel.setOnClickListener(v -> listener.onCancelClick(booking));
         } else {
             holder.btnCancel.setVisibility(View.GONE);
         }
@@ -63,18 +63,20 @@ public class BookingAdapter extends RecyclerView.Adapter<BookingAdapter.BookingV
         return bookingList.size();
     }
 
-    static class BookingViewHolder extends RecyclerView.ViewHolder {
-        TextView txtId, txtDate, txtTheater, txtTotal, txtStatus;
+    public static class BookingViewHolder extends RecyclerView.ViewHolder {
+        TextView txtId, txtDate, txtTheater, txtMovie, txtSeats, txtTotal, txtStatus;
         Button btnCancel;
 
-        public BookingViewHolder(View itemView) {
+        public BookingViewHolder(@NonNull View itemView) {
             super(itemView);
             txtId = itemView.findViewById(R.id.txtBookingId);
             txtDate = itemView.findViewById(R.id.txtBookingDate);
-            txtTheater = itemView.findViewById(R.id.txtBookingTheater);
-            txtTotal = itemView.findViewById(R.id.txtBookingTotal);
-            txtStatus = itemView.findViewById(R.id.txtBookingStatus);
-            btnCancel = itemView.findViewById(R.id.btnCancel); // bạn cần thêm vào XML
+            txtTheater = itemView.findViewById(R.id.txtTheater);
+            txtMovie = itemView.findViewById(R.id.txtMovie);
+            txtSeats = itemView.findViewById(R.id.txtSeats);
+            txtTotal = itemView.findViewById(R.id.txtTotalPrice);
+            txtStatus = itemView.findViewById(R.id.txtStatus);
+            btnCancel = itemView.findViewById(R.id.btnCancelBooking);
         }
     }
 }
